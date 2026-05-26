@@ -1,0 +1,15 @@
+- [x] Create project folder: secure-cyber-portfolio
+- [x] Build `index.html` with all required sections/components
+- [x] Style the site in `styles.css` (dark neon futuristic, responsive)
+- [x] Implement animations + interactions in `script.js`
+  - [x] Loading screen “Initializing Secure Connection...” + Access Granted
+  - [x] Typing animations for headings + simulated terminal output
+  - [x] Matrix falling code (canvas)
+  - [x] Particle/network connections (canvas)
+  - [x] Scroll-triggered reveal
+  - [x] Animated skill progress bars
+  - [x] Heatmap activity widget
+  - [x] Contact form terminal-style send simulation
+  - [x] Custom cursor + hover neon/magnet effects
+- [x] Add `README.md` with run instructions
+

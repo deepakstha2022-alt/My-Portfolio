@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepak Shrestha — Cybersecurity Portfolio</title>
+  <meta name="description" content="Deepak Shrestha cybersecurity portfolio — ethical hacking learner, network security student, labs, skills, and contact." />
+  <meta name="theme-color" content="#05070a" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- Access Granted Splash -->
+  <div id="splash" class="splash" aria-hidden="false">
+    <div class="splash-card" role="status" aria-live="polite">
+      <div class="splash-title">SECURE CHANNEL</div>
+      <div class="splash-sub">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="splashLine">Initializing Secure Connection...</span>
+      </div>
+      <div class="splash-progress" aria-hidden="true">
+        <div class="bar" id="splashBar"></div>
+      </div>
+      <div class="splash-access" id="splashAccess" aria-hidden="true">Access Granted ▸</div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Header / Nav -->
+  <header class="topbar" role="banner">
+    <a class="brand" href="#home">
+      <span class="brand-glow" aria-hidden="true"></span>
+      <span class="brand-text">Deepak Shrestha</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certifications</a>
+        <a href="#education">Education</a>
+        <a href="#contact" class="cta-link">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Background Visuals -->
+  <div class="bg" aria-hidden="true">
+    <canvas id="particles"></canvas>
+    <canvas id="matrix"></canvas>
+    <div class="binary" id="binary">
+      <span>0</span><span>1</span><span>1</span><span>0</span>
+      <span>0</span><span>1</span><span>0</span><span>1</span>
+      <span>1</span><span>0</span><span>0</span><span>1</span>
+      <span>0</span><span>1</span><span>1</span><span>0</span>
+    </div>
+
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- Fake hacker console background -->
+  <div class="terminal-bg" aria-hidden="true">
+    <div class="term">
+      <div class="term-top">
+        <span class="lamp lamp-red"></span>
+        <span class="lamp lamp-yellow"></span>
+        <span class="lamp lamp-green"></span>
+        <span class="term-title">/dev/tty0</span>
+      </div>
+      <div class="term-body" id="bgTerminal">
+        <div class="line">$ whoami</div>
+        <div class="line">deepak@lab:~$</div>
+        <div class="line">$ nmap -sV --top-ports 20 127.0.0.1</div>
+        <div class="line dim">Starting Nmap... (simulated)</div>
+        <div class="line dim" id="bgTerminalOut"></div>
+      </div>
+    </div>
+
+    <div class="net-lines" id="netLines"></div>
+  </div>
+
+  <!-- Main -->
+  <main class="main">
+    <!-- Hero -->
+    <section id="home" class="section hero" data-reveal>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="kicker">
+            <span class="kicker-pill">ETHICAL HACKER MODE</span>
+            <span class="kicker-dash"></span>
+            <span class="kicker-ghost">Network Security Student</span>
+          </div>
+
+          <h1 class="h1" id="heroTyping" aria-label="Hello, I’m Deepak Shrestha">
+            <span class="typing-caret" aria-hidden="true">█</span>
+          </h1>
+
+          <div class="hero-role" id="heroTyping2" aria-label="Cybersecurity Enthusiast | Ethical Hacking Learner | Network Security Student">
+            <span class="typing-caret" aria-hidden="true">█</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-neon" href="#projects">View Projects</a>
+            <a class="btn btn-glow" href="#contact">Contact Me</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="chip">
+              <span class="chip-ic" aria-hidden="true">⌁</span>
+              <span>Wireshark • Nmap • Snort</span>
+            </div>
+            <div class="chip">
+              <span class="chip-ic" aria-hidden="true">⌁</span>
+              <span>Linux • Windows Server • AD</span>
+            </div>
+          </div>
+
+          <div class="hero-widgets">
+            <div class="widget" data-widget>
+              <div class="widget-title">SECURITY STATUS</div>
+              <div class="widget-row">
+                <span class="led" aria-hidden="true"></span>
+                <span class="widget-text"><strong>Operational</strong> — Labs ready</span>
+              </div>
+            </div>
+            <div class="widget" data-widget>
+              <div class="widget-title">ACTIVE TRACE</div>
+              <div class="widget-mono" id="traceLine">trace: init • handshake • scan • monitor</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-console" aria-label="Terminal console">
+          <div class="console-card" data-reveal>
+            <div class="console-head">
+              <div class="console-btns" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="console-path">/home/deepak/portfolio</div>
+              <button class="sound-toggle" id="soundToggle" type="button" aria-label="Toggle sound">
+                <span class="sound-ic" aria-hidden="true">🔊</span>
+                <span class="sound-text">Sound</span>
+              </button>
+            </div>
+
+            <div class="console-body">
+              <div class="console-output" id="terminalOutput" role="log" aria-live="polite"></div>
+              <div class="console-prompt">
+                <span class="prompt-ic" aria-hidden="true">$</span>
+                <span class="prompt-user">deepak</span>
+                <span class="prompt-colon">:</span>
+                <span class="prompt-path">~/skills</span>
+                <span class="prompt-caret" aria-hidden="true">▌</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-bits" aria-hidden="true" id="floatBits"></div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-badge">ABOUT</div>
+          <h2 class="h2">Deepak Shrestha</h2>
+          <p class="lead">Motivated Computer Science student with foundational knowledge in networking, cybersecurity, and system administration.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card panel-glass" data-reveal>
+            <h3 class="card-title">Profile</h3>
+            <div class="about-details">
+              <div class="kv"><span class="k">Name</span><span class="v">Deepak Shrestha</span></div>
+              <div class="kv"><span class="k">Phone</span><span class="v">9746326957</span></div>
+              <div class="kv"><span class="k">Email</span><span class="v"><a href="mailto:deepakstha2022@gmail.com" class="link">deepakstha2022@gmail.com</a></span></div>
+              <div class="kv"><span class="k">Location</span><span class="v">Kathmandu, Nepal</span></div>
+              <div class="kv"><span class="k">LinkedIn</span><span class="v"><a href="#" class="link" id="linkedinLink">Deepak Shrestha</a></span></div>
+            </div>
+
+            <div class="about-summary">
+              <p>
+                Motivated Computer Science student with foundational knowledge in networking, cybersecurity, and system administration. Skilled in configuring and troubleshooting networks, managing Windows Server and Active Directory environments, and working with Linux systems in virtual lab environments. Familiar with network monitoring and security tools including Wireshark, Nmap, and Snort IDS. Passionate about cybersecurity and continuously developing practical skills in network security, access control, and infrastructure management.
+              </p>
+            </div>
+          </div>
+
+          <div class="stats" aria-label="Statistics">
+            <div class="stat card panel-glow" data-reveal>
+              <div class="stat-ic" aria-hidden="true">⌁</div>
+              <div class="stat-top">Networking Skills</div>
+              <div class="stat-num" data-count="12">0</div>
+              <div class="stat-sub">TCP/IP • VLAN • Subnetting</div>
+            </div>
+            <div class="stat card panel-glow" data-reveal>
+              <div class="stat-ic" aria-hidden="true">⌁</div>
+              <div class="stat-top">Security Labs</div>
+              <div class="stat-num" data-count="9">0</div>
+              <div class="stat-sub">Snort • UFW • Rules</div>
+            </div>
+            <div class="stat card panel-glow" data-reveal>
+              <div class="stat-ic" aria-hidden="true">⌁</div>
+              <div class="stat-top">Virtual Projects</div>
+              <div class="stat-num" data-count="6">0</div>
+              <div class="stat-sub">VirtualBox • Labs • Testing</div>
+            </div>
+            <div class="stat card panel-glow" data-reveal>
+              <div class="stat-ic" aria-hidden="true">⌁</div>
+              <div class="stat-top">Cybersecurity Learning</div>
+              <div class="stat-num" data-count="24">0</div>
+              <div class="stat-sub">Ongoing: monitoring & defense</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-badge">SKILLS</div>
+          <h2 class="h2">Cyber Skills Stack</h2>
+          <p class="lead">Neon-fast tooling and network foundations—focused on real lab experience.</p>
+        </div>
+
+        <div class="skills-grid" aria-label="Skills">
+          <div class="skill-group card panel-glass" data-reveal>
+            <div class="group-title">Networking</div>
+            <div class="skill-list" id="skillsNetworking"></div>
+            <div class="group-footer">Layered fundamentals</div>
+          </div>
+
+          <div class="skill-group card panel-glass" data-reveal>
+            <div class="group-title">System Administration</div>
+            <div class="skill-list" id="skillsSys"></div>
+            <div class="group-footer">Windows Server + Linux</div>
+          </div>
+
+          <div class="skill-group card panel-glass" data-reveal>
+            <div class="group-title">Virtualization</div>
+            <div class="skill-list" id="skillsVirt"></div>
+            <div class="group-footer">Lab-driven practice</div>
+          </div>
+
+          <div class="skill-group card panel-glass" data-reveal>
+            <div class="group-title">Security Basics</div>
+            <div class="skill-list" id="skillsSec"></div>
+            <div class="group-footer">Access control & segmentation</div>
+          </div>
+
+          <div class="skill-group card panel-glass" data-reveal>
+            <div class="group-title">Monitoring & Tools</div>
+            <div class="skill-list" id="skillsTools"></div>
+            <div class="group-footer">Detect, analyze, respond</div>
+          </div>
+        </div>
+
+        <!-- Heatmap style activity for skills -->
+        <div class="heatmap-wrap" data-reveal>
+          <div class="heatmap-head">
+            <div class="section-badge">ACTIVITY</div>
+            <h3 class="heat-title">Learning Heatmap</h3>
+            <div class="heat-sub">Contribution-style overview (simulated)</div>
+          </div>
+          <div class="heatmap" id="heatmap" aria-label="Skills activity heatmap"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-badge">PROJECTS</div>
+          <h2 class="h2">Lab Work & Deployments</h2>
+          <p class="lead">Realistic implementations with monitoring, access control, and analysis.</p>
+        </div>
+
+        <div class="projects-grid" aria-label="Projects">
+          <article class="project card panel-glow" data-reveal>
+            <div class="project-top">
+              <div class="project-ic">🛡️</div>
+              <h3 class="project-title">Windows Server 2022 Active Directory Infrastructure (Virtual Lab)</h3>
+            </div>
+            <ul class="bullets">
+              <li>Deployed and configured Active Directory Domain Services (AD DS)</li>
+              <li>Managed users, groups, and Organizational Units</li>
+              <li>Configured DHCP server</li>
+              <li>Implemented Group Policy Objects</li>
+              <li>Tested client-server communication</li>
+            </ul>
+            <div class="scanline" aria-hidden="true"></div>
+          </article>
+
+          <article class="project card panel-glow" data-reveal>
+            <div class="project-top">
+              <div class="project-ic">🚨</div>
+              <h3 class="project-title">Network Security Monitoring Lab (Snort IDS + UFW Firewall)</h3>
+            </div>
+            <ul class="bullets">
+              <li>Configured Snort IDS for real-time monitoring</li>
+              <li>Developed custom intrusion detection rules</li>
+              <li>Implemented firewall rules using UFW</li>
+              <li>Simulated attack scenarios</li>
+            </ul>
+            <div class="scanline" aria-hidden="true"></div>
+          </article>
+
+          <article class="project card panel-glow" data-reveal>
+            <div class="project-top">
+              <div class="project-ic">🌐</div>
+              <h3 class="project-title">Enterprise Network Design and Implementation Lab</h3>
+            </div>
+            <ul class="bullets">
+              <li>Designed hierarchical network architecture</li>
+              <li>Implemented VLANs and ACLs</li>
+              <li>Performed analysis using Wireshark and Nmap</li>
+            </ul>
+            <div class="scanline" aria-hidden="true"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certs" class="section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-badge">CERTIFICATIONS</div>
+          <h2 class="h2">Badges & Credentials</h2>
+          <p class="lead">Proof of foundational networking knowledge and continued growth.</p>
+        </div>
+
+        <div class="cert-grid" aria-label="Certifications">
+          <div class="cert card panel-glow" data-reveal>
+            <div class="cert-badge">CCNA</div>
+            <div class="cert-title">Introduction to Networks</div>
+            <div class="cert-org">Cisco Networking Academy</div>
+            <div class="cert-year">2025</div>
+            <div class="cert-glow" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-badge">EDUCATION</div>
+          <h2 class="h2">Timeline</h2>
+          <p class="lead">A path focused on networking, security, and systems engineering.</p>
+        </div>
+
+        <div class="timeline" aria-label="Education timeline">
+          <div class="t-item" data-reveal>
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card card panel-glass">
+              <div class="t-title">Texas College of Management & IT</div>
+              <div class="t-sub">Bachelor of Computer Science (BCS) — Ongoing</div>
+              <div class="t-meta">Expected Graduation: <strong>2028</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-badge">CONTACT</div>
+          <h2 class="h2">Hacker Terminal Contact</h2>
+          <p class="lead">Send a message—your request will be “queued” and simulated securely.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card card panel-glow" data-reveal>
+            <form id="contactForm" class="contact-form">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+              </div>
+
+              <div class="contact-actions">
+                <button class="btn btn-neon btn-wide" type="submit" id="sendBtn">
+                  <span class="btn-text">Send</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+                <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+              </div>
+
+              <div class="terminal-command" aria-hidden="true" id="formCommand"></div>
+            </form>
+          </div>
+
+          <div class="social-card card panel-glass" data-reveal>
+            <div class="social-title">Connect</div>
+            <p class="social-sub">Quick links for professional outreach.</p>
+            <div class="social-icons">
+              <a class="soc" href="#" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <span aria-hidden="true">in</span>
+                <span>LinkedIn</span>
+              </a>
+              <a class="soc" href="mailto:deepakstha2022@gmail.com" aria-label="Email">
+                <span aria-hidden="true">✉</span>
+                <span>Email</span>
+              </a>
+              <a class="soc" href="#projects" aria-label="Projects">
+                <span aria-hidden="true">▣</span>
+                <span>Projects</span>
+              </a>
+            </div>
+
+            <div class="mini-dash" aria-label="Dashboard widgets">
+              <div class="dash-row">
+                <span class="dash-key">Session</span>
+                <span class="dash-val" id="dashSession">v1.0</span>
+              </div>
+              <div class="dash-row">
+                <span class="dash-key">Queue</span>
+                <span class="dash-val" id="dashQueue">0 msgs</span>
+              </div>
+              <div class="dash-row">
+                <span class="dash-key">Firewall</span>
+                <span class="dash-val good">ALLOW (sim)</span>
+              </div>
+              <div class="dash-row">
+                <span class="dash-key">Latency</span>
+                <span class="dash-val" id="dashLatency">~12ms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" data-reveal>
+      <div class="container footer-grid">
+        <div class="footer-left">
+          <div class="footer-title">Securing Networks, Building the Future.</div>
+          <div class="footer-sub">© <span id="year"></span> Deepak Shrestha. All rights reserved.</div>
+        </div>
+        <div class="footer-right">
+          <div class="footer-lines" aria-hidden="true"></div>
+          <div class="footer-links">
+            <a href="#home">Top</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
+
